@@ -57,7 +57,7 @@ battle (Battlefield a d) = do
 
 invade :: Battlefield -> Rand StdGen Battlefield
 invade (Battlefield a d) 
-  | a >= 2 && d /= 0 = battle (Battlefield a d) >>= invade  
+  | a >= 2 && d > 0 = battle (Battlefield a d) >>= invade  
   | otherwise = return $ Battlefield a d
 
 successProb :: Battlefield -> Rand StdGen Double
